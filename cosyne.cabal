@@ -1,0 +1,37 @@
+name:                cosyne
+version:             0.1.0.0
+synopsis:            Implementation of COSYNE evolution algorithm
+description:         This is an implementation of Accelerated Neural Evolution
+                     through Cooperatively Coevolved Synapses (COSYNE). Despite
+                     the word 'Neural' and 'Synapse' appearing in the name,
+                     this library is agnostic to if you are using a neural
+                     network or some other construction (although the method is
+                     designed for neural nets).
+                     .
+                     F. Gomez, J. Schmidhuber, R. Miikkulainen. Accelerated
+                     Neural Evolution through Cooperatively Coevolved Synapses.
+                     Journal of Machine Learning Research (JMLR), 9:937-965,
+                     2008.
+                     .
+                     [http://people.idsia.ch/~juergen/gomez08a.pdf]
+license:             ISC
+license-file:        LICENSE
+author:              Mikko Juola
+maintainer:          mikko.juola+dev@iki.fi
+category:            Math
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Numeric.COSYNE
+  build-depends:       base >=4.7 && <5.0
+                      ,containers
+                      ,deepseq >=1.4
+                      ,lens
+                      ,mtl
+                      ,vector
+  hs-source-dirs:      src
+  extra-libraries:     OpenCL
+  ghc-options:         -Wall -fno-warn-name-shadowing
+  default-language:    Haskell2010
+
