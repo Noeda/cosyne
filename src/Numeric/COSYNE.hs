@@ -127,11 +127,11 @@ promiseScores = do
   for_ current_individuals $ \idx -> do
     individual <- use (individuals.at idx)
     case individual^?_Just.score of
-      Nothing -> do
+      Just Nothing -> do
         item <- getItem idx
         promising <- lift $ ev item
         individuals.at idx._Just.score .= Just promising
-      Just _ -> return ()
+      _ -> return ()
 
 logLine :: Monad m => String -> StateT (Cosyne m promise score item stop i) m ()
 logLine str = do
